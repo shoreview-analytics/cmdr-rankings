@@ -1,0 +1,10 @@
+<!-- CMDR Rankings embed for curling.ca. Paste into the page (HTML / Custom HTML block). -->
+<iframe id="cmdr-rankings" src="https://shoreview-analytics.github.io/cmdr-rankings/"
+  title="Canadian Mixed Doubles Ranking" style="width:100%;border:0;min-height:900px" loading="lazy"></iframe>
+<script>
+  window.addEventListener('message', function (e) {
+    if (e.data && e.data.cmdrHeight) {
+      document.getElementById('cmdr-rankings').style.height = e.data.cmdrHeight + 'px';
+    }
+  });
+</script>
