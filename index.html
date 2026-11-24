@@ -517,12 +517,7 @@ function buildDoc(readonly){
     + sc("rosters", "application/json", $("rosters").textContent)
     + sc("nat", "application/json", $("nat").textContent)
     + sc("main", "", $("main").textContent)
-    + `<script>
-/* Tell an embedding page (iframe) how tall this page is, so it can resize without scrollbars. */
-(function(){function send(){try{parent.postMessage({cmdrHeight:document.documentElement.scrollHeight},'*');}catch(e){}}
-window.addEventListener('load',send);new ResizeObserver(send).observe(document.documentElement);document.addEventListener('click',function(){setTimeout(send,50)});})();
-</script>
-</body></html>`;
+    + `</body></html>`;
 }
 async function persist(note){
   applyManual(); DIRTY = true; draw();
@@ -1095,4 +1090,9 @@ if(LOCAL && !META.readonly){ EDIT = true; drawAdmin(); }
   const can = u ? (u.isOwner() || u.canEdit()) : false;
   if(ART && can){ EDIT = true; draw(); }
 })();
-</script></body></html>
+</script><script>
+/* Tell an embedding page (iframe) how tall this page is, so it can resize without scrollbars. */
+(function(){function send(){try{parent.postMessage({cmdrHeight:document.documentElement.scrollHeight},'*');}catch(e){}}
+window.addEventListener('load',send);new ResizeObserver(send).observe(document.documentElement);document.addEventListener('click',function(){setTimeout(send,50)});})();
+</script>
+</body></html>
